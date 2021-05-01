@@ -1,4 +1,4 @@
-import { ReactQueryDevtools } from 'react-query-devtools'
+// import { ReactQueryDevtools } from 'react-query-devtools'
 
 import {
   QueryClient,
@@ -12,7 +12,7 @@ const queryClient = new QueryClient()
 const PostsPage: React.VFC = () => (
   <QueryClientProvider client={queryClient}>
     <Posts />
-    <ReactQueryDevtools toggleButtonProps={{ style: { right: 70 } }} />
+    {/* <ReactQueryDevtools initialIsOpen toggleButtonProps={{ style: { right: 70 } }} /> */}
   </QueryClientProvider>
 )
 
