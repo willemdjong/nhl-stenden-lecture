@@ -1,9 +1,7 @@
 import usePosts from '../hooks/usePosts'
 
-const Posts = () => {
-  const {
-    status, data, error, isFetching,
-  } = usePosts()
+const Posts: React.VFC = () => {
+  const { status, data, error, isFetching, } = usePosts()
 
   return (
     <div>
@@ -14,12 +12,12 @@ const Posts = () => {
         ) : status === 'error' ? (
           <span>
             Error:
-            {error.message}
+            {error?.message}
           </span>
         ) : (
           <>
             <div>
-              {data.map((post) => (
+              {data?.map((post) => (
                 <p key={post.id}>
                   {post.title}
                 </p>

@@ -1,13 +1,16 @@
-import { useQuery } from 'react-query';
-import { request, gql } from 'graphql-request';
+import { useQuery, UseQueryResult } from 'react-query'
+import { request, gql } from 'graphql-request'
 
 const endpoint = 'https://graphqlzero.almansi.me/api'
 
-const usePosts = () =>
-  useQuery('posts', async () => {
-    const {
-      posts: { data },
-    } = await request(
+interface Post { 
+  id: string
+  title: string
+}
+
+const usePosts = (): UseQueryResult<Post[], Error> =>
+  useQuery<Post[], Error>('posts', async () => {
+    const { posts: { data } } = await request(
       endpoint,
       gql`
         query {
@@ -19,8 +22,8 @@ const usePosts = () =>
           }
         }
       `
-    );
-    return data;
-  });
+    )
+    return data
+  })
 
-export default usePosts;
+export default usePosts

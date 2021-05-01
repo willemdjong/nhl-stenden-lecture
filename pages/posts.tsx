@@ -9,7 +9,7 @@ import Posts from '../components/posts'
 
 const queryClient = new QueryClient()
 
-const PostsPage = () => (
+const PostsPage: React.VFC = () => (
   <QueryClientProvider client={queryClient}>
     <Posts />
     <ReactQueryDevtools toggleButtonProps={{ style: { right: 70 } }} />
