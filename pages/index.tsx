@@ -1,10 +1,19 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
-export default function Home() {
+import styled from 'styled-components'
+
+const Posts = styled.a`
+  color: blue;
+  cursor: pointer;
+  margin-left: 4px;
+`
+
+const Home: React.VFC = () => {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Create Next App!</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -14,7 +23,12 @@ export default function Home() {
         </h1>
 
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          Go to my
+          <Link href='/posts'>
+            <Posts>
+            Posts
+            </Posts>
+          </Link>
         </p>
 
         <div className="grid">
@@ -207,3 +221,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home
